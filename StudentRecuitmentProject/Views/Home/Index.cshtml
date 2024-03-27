@@ -1,0 +1,63 @@
+﻿@model List<StudentRecuitmentProject.DBmodels.Student>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <h1>Students Information</h1>
+    <a href="/home/addOrUpdateStudent">Add a New Student</a>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Academic History</th>
+                    <th>Birthday</th>
+                    <th>Program</th>
+                    <th>Email Address</th>
+                    <th>Region</th>
+                    <th>Address</th>
+                    <th>Phone Number</th>
+                    <th>Gender</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Birthday</td>
+                        <td>@item.Program</td>
+                        <td>@item.Email</td>
+                        <td>@item.Region</td>
+                        <td>@item.Address</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@item.Gender</td>
+                        <td><a href="/home/addOrUpdateStudent/@item.StudentId">Edit</a></td>
+                        <td><a href="/home/DeleteStudent/@item.StudentId">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+@* 
+@foreach(var item in Model)
+{
+    <div>
+        <h1>@item.Email</h1>
+        <h1>@item.FirstName</h1>
+        <h1>@item.LastName</h1>
+        <h1>@item.PhoneNumber</h1>
+    </div>
+} *@
